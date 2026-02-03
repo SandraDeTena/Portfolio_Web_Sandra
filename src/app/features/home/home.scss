@@ -146,3 +146,81 @@
 
 /* Animación de parpadeo para el cursor de escritura */
 @keyframes blink { 50% { opacity: 0; } }
+
+/* ==========================================================================
+   SECCIÓN DE SKILLS (NUEVO)
+   ========================================================================== */
+
+.skills-section {
+  padding: 80px 10%;
+  background-color: #fafafa; // Un gris muy clarito para diferenciar del blanco del hero
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+    font-weight: 800;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; // Dos columnas: Creativa y Tech
+    gap: 40px;
+  }
+
+  .skill-category {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+
+    h3 {
+      color: #D48A9B; // Tu color rosa de marca
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 10px;
+    }
+
+    .icons-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+      transition: transform 0.3s ease;
+
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        margin-bottom: 10px;
+        /* Efecto para que los logos de acuarela resalten */
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+      }
+
+      span {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #666;
+      }
+
+      &:hover {
+        transform: translateY(-10px); // El logo sube al pasar el ratón
+      }
+    }
+  }
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}

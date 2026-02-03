@@ -52,4 +52,11 @@ export class Home implements OnInit {
 
     setTimeout(() => this.typeEffect(), typeSpeed);
   }
+
+  verSkills(): void {
+  const el = document.getElementById('skills');
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+  }
 }
