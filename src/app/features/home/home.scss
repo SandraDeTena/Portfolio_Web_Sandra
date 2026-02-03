@@ -1,0 +1,24 @@
+.split-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+  color: white;
+
+  &.left {
+    background-color: var(--dark);
+    &:hover { flex: 1.5; background-color: var(--orange); }
+  }
+
+  &.right {
+    background-color: var(--pink);
+    &:hover { flex: 1.5; background-color: var(--yellow); }
+  }
+}
