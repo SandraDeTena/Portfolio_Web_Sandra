@@ -1,59 +1,52 @@
-# PortfolioSandra
+# 🚀 Portfolio Profesional | Sandra De Tena
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+<p align="center">
+  <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular">
+  <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="Sass">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+</p>
 
-## Development server
+---
 
-To start a local development server, run:
+## 🎨 Sobre el Proyecto
+Este portfolio es una aplicación web de alto rendimiento que refleja mi identidad híbrida: **Frontend Developer** con alma de **Diseñadora Gráfica**. La interfaz ha sido diseñada desde cero para ofrecer una experiencia de usuario única mediante el uso de "facetas" dinámicas.
 
-```bash
+### ✨ Características Destacadas
+* **Identidad Visual Corporativa:** Paleta unificada en degradados Naranja (`#F7941E`) y Rosa (`#D48A9B`).
+* **Dualidad Dev/Diseño:** Sistema de cambio de faceta con animaciones personalizadas:
+    * **Modo Dev:** Lluvia de código animada tipo VS Code.
+    * **Modo Diseño:** Gotas de pintura fluidas y estética minimalista.
+* **Trayectoria Interactiva:** Sección de experiencia tipo "agenda" con diseño limpio y profesional.
+* **Footer Personalizado:** Integración de marca propia y stack tecnológico.
+
+## 🛠️ Stack Tecnológico
+* **Framework:** Angular 17+
+* **Estilos:** SCSS (Arquitectura modular)
+* **Diseño:** Adobe Suite (Photoshop, Illustrator) & Iconografía personalizada.
+
+## 🚀 Despliegue
+Puedes ver el resultado final aquí:
+👉 **[VER PORTFOLIO EN VIVO](https://SandraDeTena.github.io/Portfolio_Web_Sandra/)**
+
+---
+
+## 🛠️ Instalación para Desarrolladores
+
+Si deseas explorar el código localmente:
+
+1. Clonar el repositorio:
+   ```bash
+   git clone [https://github.com/SandraDeTena/Portfolio_Web_Sandra.git](https://github.com/SandraDeTena/Portfolio_Web_Sandra.git)
+2. Instalar dependencias:
+
+Bash
+
+npm install
+
+3. Levantar el servidor de desarrollo:
+
+Bash
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Hecho con ❤️, Angular y mucha creatividad por Sandra De Tena.
