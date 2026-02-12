@@ -77,6 +77,10 @@
             <span>Auditions</span>
           </div>
           <div class="skill-item">
+            <img src="Spark AR_logo.png" alt="Spark AR">
+            <span>Spark AR</span>
+          </div>
+          <div class="skill-item">
             <img src="Cámara de Fotod_Acuarela.png" alt="Phtografic">
             <span>Fotografía</span>
           </div>
@@ -308,3 +312,234 @@
     </div>
   </div>
 </section>
+<!-- SECCIÓN PROYECTOS  -->
+<section id="proyectos" class="projects-wrapper">
+
+  <div class="facet-switch">
+    <button (click)="setFacet('dev')" [class.active]="facet === 'dev'">
+      <i class="bi bi-code-slash"></i> &lt;&lt; Developer /&gt;&gt;
+    </button>
+    <button (click)="setFacet('design')" [class.active]="facet === 'design'">
+      <i class="bi bi-palette"></i> Diseño Gráfico
+    </button>
+  </div>
+
+  <div class="projects-container" [ngClass]="facet">
+
+    <div *ngIf="facet === 'dev'" class="bg-animation code-rain">
+      <div class="code-block" *ngFor="let i of [1,2,3,4]">
+        <div class="code-line"><span class="vs-purple">import</span> {{ '{' }} <span class="vs-yellow">Component</span>
+          {{ '}' }} <span class="vs-purple">from</span> <span class="vs-orange">'@angular/core'</span>;</div>
+        <div class="code-line"><span class="vs-gold">@Component</span>({{ '{' }} <span class="vs-blue">selector</span>:
+          <span class="vs-orange">'app-root'</span> {{ '}' }})</div>
+        <div class="code-line"><span class="vs-purple">export class</span> <span class="vs-yellow">SandraDev</span> {{
+          '{' }} <span class="vs-blue">status</span> = <span class="vs-orange">'coding'</span>; {{ '}' }}</div>
+      </div>
+    </div>
+
+    <div *ngIf="facet === 'design'" class="bg-animation paint-bg">
+      <img src="Salpicadura de pintura.png" alt="Splash" class="splash-img">
+    </div>
+
+    <div class="projects-grid">
+
+      <ng-container *ngIf="facet === 'dev'">
+        <article class="p-card">
+          <div class="p-img-wrapper"><img src="assets/img/saytatto.jpg" alt="Say Tatto"></div>
+          <div class="p-info">
+            <h3>Say Tatto</h3>
+            <p>Gestión Full Stack para estudios de tatuajes con Angular y Java.</p>
+            <div class="p-links">
+              <a href="https://github.com/SandraDeTena" target="_blank" class="btn-project btn-main">
+                <i class="bi bi-github"></i> GitHub
+              </a>
+              <a href="https://sandradetena.github.io/say-tatto" target="_blank" class="btn-project btn-sub">
+                <i class="bi bi-globe"></i> Web
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-img-wrapper"><img src="assets/img/diabetes_control.jpg" alt="Diabetes App"></div>
+          <div class="p-info">
+            <h3>Diabetes Control</h3>
+            <p>Dashboard de salud interactivo para monitorización de glucosa.</p>
+            <div class="p-links">
+              <a href="https://github.com/SandraDeTena" target="_blank" class="btn-project btn-main">
+                <i class="bi bi-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+      </ng-container>
+
+      <ng-container *ngIf="facet === 'design'">
+        <article class="p-card">
+          <div class="p-img-wrapper"><img src="Museo del Prado.PNG" alt="Fragmentos del Prado"></div>
+          <div class="p-info">
+            <h3>#FragmentosDelPrado - Filtro para el Museo Nacional del Prado</h3>
+            <p>
+              <strong>#FragmentosDelPrado</strong> es un filtro interactivo creado para el
+              <strong>Museo Nacional del Prado</strong> con motivo de la exposición temporal
+              <em>Fragmentos. Mujeres, ideología y artes plásticas en España (1833–1931)</em>.
+            </p>
+            <div class="used-tools">
+              <img src="InDesing_Acuarela.png" alt="ID"> <img src="Photoshop_Acuarela.png" alt="PS"> <img
+                src="Spark AR_logo.png" alt="SP">
+            </div>
+            <a href="https://www.behance.net/gallery/99811455/FragmentosDelPrado" target="_blank"
+              class="btn-project btn-main">
+              <i class="bi bi-behance"></i> Behance
+            </a>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-img-wrapper"><img src="NIO-Art.PNG" alt="NI9 ART"></div>
+          <div class="p-info">
+            <h3>NI9 ART Movement</h3>
+            <p> Los usuarios participarán creando obras con objetos cotidianos o de forma virtual, que se difundirán a través de redes sociales, web y newsletter del museo bajo el hashtag <strong>#MovimientoArteN19</strong>. </p>
+            <div class="used-tools">
+              <img src="ILLUSTRATOR_Acuarela.png" alt="AI"> <img src="Photoshop_Acuarela.png" alt="PS"> <img src="figma-logo-22789.svg" alt="Figma">
+            </div>
+            <a href="https://www.behance.net/gallery/110384961/NI9-ART-Movement" target="_blank"
+              class="btn-project btn-main">
+              <i class="bi bi-behance"></i> Behance
+            </a>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-img-wrapper"><img src="Boadilla_gourmet.PNG" alt="Boadilla Gourmet"></div>
+          <div class="p-info">
+            <h3>Boadilla Gourmet</h3>
+            <p>Diseño de marca y packaging para el sector gastronómico.</p>
+            <div class="used-tools">
+              <img src="ILLUSTRATOR_Acuarela.png" alt="AI"> <img src="InDesing_Acuarela.png" alt="ID"><img src="Photoshop_Acuarela.png" alt="PS">
+            </div>
+            <a href="https://www.behance.net/gallery/114626195/Boadilla-Gourmet" target="_blank"
+              class="btn-project btn-main">
+              <i class="bi bi-behance"></i> Behance
+            </a>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-img-wrapper"><img src="dulce_oasis.PNG" alt="Dulce Oasis"></div>
+          <div class="p-info">
+            <h3>Dulce Oasis 🍩🍫</h3>
+            <p>Branding completo e identidad de marca para repostería.</p>
+            <div class="used-tools">
+              <img src="ILLUSTRATOR_Acuarela.png" alt="AI"> <img src="Photoshop_Acuarela.png" alt="PS">
+            </div>
+            <a href="https://www.behance.net/gallery/119476627/Dulce-Oasis-_Identidad-de-Marca" target="_blank"
+              class="btn-project btn-main">
+              <i class="bi bi-behance"></i> Behance
+            </a>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-img-wrapper"><img src="Mujer_Bombay.PNG" alt="Dulce Oasis"></div>
+          <div class="p-info">
+            <h3>`•．¸¸．•´´¯`••．_．• 𝑴𝒖𝒋𝒆𝒓 𝑩𝒐𝒎𝒃𝒂𝒚 `•．¸¸．•´´¯`••．_．• </h3>
+            <p> Proyecto creativo que explora la unión entre concepto y diseño visual, utilizando la composición y el color como elementos clave para transmitir una idea clara y contemporánea. </p>
+
+            <div class="used-tools">
+              <img src="ILLUSTRATOR_Acuarela.png" alt="AI"> <img src="Photoshop_Acuarela.png" alt="PS">
+            </div>
+            <a href="https://www.behance.net/gallery/114548805/-_" target="_blank"
+              class="btn-project btn-main">
+              <i class="bi bi-behance"></i> Behance
+            </a>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-img-wrapper"><img src="Cambio_16.PNG" alt="Dulce Oasis"></div>
+          <div class="p-info">
+            <h3>Heroínas por un mundo mejor.</h3>
+            <p> Ilustración gráfica para la portada de la revista <em>Cambio 16</em>, inspirada en un artículo sobre 25 héroes que ayudan a personas y animales en zonas de conflicto, donde la figura de la mujer árabe simboliza la fuerza y el papel creciente de las mujeres en el mundo actual. </p>
+            <div class="used-tools">
+              <img src="ILLUSTRATOR_Acuarela.png" alt="AI"> <img src="Photoshop_Acuarela.png" alt="PS">
+            </div>
+            <a href="https://www.behance.net/gallery/81927141/Heroinas-por-un-mundo-mejor" target="_blank"
+              class="btn-project btn-main">
+              <i class="bi bi-behance"></i> Behance
+            </a>
+          </div>
+        </article>
+      </ng-container>
+
+    </div>
+  </div>
+</section>
+
+<!-- /* Esto es el CONTACTO y el FOOTER*/ -->
+<section id="contacto" class="contact-section">
+  <div class="contact-container">
+    <h2 class="section-title">¿Hablamos?</h2>
+    <p class="contact-subtitle">
+      Ya sea para un proyecto de desarrollo, un diseño creativo o simplemente para saludar, 
+      mi bandeja de entrada siempre está abierta.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="bi bi-envelope-at"></i>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:tu-email@ejemplo.com">sandradetena@ejemplo.com</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="bi bi-geo-alt"></i>
+          <div>
+            <h4>Ubicación</h4>
+            <p>Madrid, España (Disponible para remoto)</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Nombre" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-main">Enviar Mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <span class="gradient-text">&lt;&lt;SandraDeTena/&gt;&gt;</span>
+    </div>
+    
+    <nav class="footer-nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#skills">Skills</a>
+      <a href="#experiencia">Trayectoria</a>
+      <a href="#proyectos">Proyectos</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/sandradetena/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/SandraDeTena" target="_blank"><i class="bi bi-github"></i></a>
+      <a href="https://www.behance.net/sandradetenacv" target="_blank"><i class="bi bi-behance"></i></a>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2026 Sandra De Tena. Hecho con <i class="bi bi-heart-fill"></i>, Angular y una pizca de diseño.</p>
+  </div>
+</footer>
