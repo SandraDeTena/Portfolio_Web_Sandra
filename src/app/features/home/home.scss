@@ -529,7 +529,7 @@
 
 .btn-git { background: #333; color: white; margin-right: 10px; }
 .btn-live { border: 2px solid #F7941E; color: #F7941E; }
-.btn-behance { background: #0057ff; color: white; width: 100%; justify-content: center; }
+.btn-behance { background: #00ffb7; color: white; width: 100%; justify-content: center; }
 
 @keyframes slideCode {
   from { transform: translateY(0); }
@@ -1161,4 +1161,56 @@
     color: #888;
     i { color: #ff4d4d; }
   }
+
+  .footer-bottom {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.95rem;
+  color: #888;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espacio entre los elementos */
+    flex-wrap: wrap;
+  }
+
+  /* El corazón con tu degradado corporativo naranja-rosa */
+  .heart-gradient {
+    background: linear-gradient(45deg, #F7941E, #D48A9B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  /* Control del tamaño del logo de Angular */
+  .angular-icon {
+    width: 20px; 
+    height: auto;
+    vertical-align: middle;
+    margin-right: 4px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  }
+
+  .tech-stack {
+    color: #333;
+    font-weight: 700;
+  }
+
+  .design-stack {
+    color: #D48A9B; /* Tu rosa corporativo */
+    font-weight: 700;
+  }
+
+  /* Animación sutil al pasar el ratón por el footer */
+  &:hover {
+    .heart-gradient {
+      transform: scale(1.2);
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
 }
