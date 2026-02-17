@@ -1072,6 +1072,41 @@
 /* ==========================================================================
    5. CONTACTO y 6. FOOTER
    ========================================================================== */
+/* Estilo específico para el botón del formulario de contacto */
+.contact-form {
+  .btn-main {
+    // Heredamos el degradado corporativo
+    background: $gradient-brand !important; 
+    color: white !important;
+    
+    // Dimensiones y bordes
+    padding: 14px 35px;
+    border-radius: 50px;
+    border: none;
+    
+    // Tipografía
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    
+    // Transiciones y sombra inicial
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(247, 148, 30, 0.3);
+    display: inline-block;
+
+    // Efecto al pasar el ratón (Hover)
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(212, 138, 155, 0.5);
+      filter: brightness(1.1); // Le da un toque extra de luz
+    }
+
+    // Efecto al hacer clic
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+}
 .contact-section {
   padding: 80px 10%;
   background: #fff;
