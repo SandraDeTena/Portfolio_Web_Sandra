@@ -1,6 +1,11 @@
 /* ==========================================================================
    SECCIÓN DE INICIO (HERO SECTION)
    ========================================================================== */
+  /* VARIABLES AL PRINCIPIO DEL ARCHIVO */
+    $color-naranja: #F7941E;
+    $color-rosa: #D48A9B;
+    $gradient-brand: linear-gradient(45deg, $color-naranja, $color-rosa);
+    $font-code: 'Courier New', Courier, monospace;
 
 /* Contenedor principal que ocupa toda la pantalla de bienvenida */
 .hero-section {
