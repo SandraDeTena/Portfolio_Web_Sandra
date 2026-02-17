@@ -15,8 +15,11 @@ jobs:
           npm install
           npx ng build --configuration production --base-href "/Portfolio_Web_Sandra/"
 
+      - name: Comprobar Carpetas 🔍
+        run: ls -R dist/
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/portfolio-sandra
+          folder: dist/portfolio-sandra/browser
           branch: gh-pages
