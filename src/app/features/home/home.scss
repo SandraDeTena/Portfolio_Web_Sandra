@@ -93,7 +93,7 @@
       }
 
       /* Botón naranja principal */
-      .btn-main { background: #F7941E; color: white; border: none; }
+      .btn-main { text-decoration: none; display: inline-block;background: #F7941E; color: white; border: none; }
       
       /* Botón con borde rosa para el CV */
       .btn-sub { border: 2px solid #D48A9B; color: #D48A9B; background: transparent; }
