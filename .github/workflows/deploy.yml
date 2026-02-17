@@ -18,5 +18,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/portfolio-web-sandra # Verifica que este sea el nombre en tu carpeta dist
+          folder: dist/portfolio-web-sandra/browser # Verifica que este sea el nombre en tu carpeta dist
           branch: gh-pages
