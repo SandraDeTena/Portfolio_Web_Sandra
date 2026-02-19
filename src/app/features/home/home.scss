@@ -92,27 +92,47 @@
         display: inline-block;
       }
 
+      /* Grupo de botones: Ver Proyectos y CV */
+    .cta-group {
+      display: flex;
+      gap: 20px;
+      margin-top: 35px;
+
+      /* Estilos compartidos para que AMBOS sean iguales en forma */
+      .btn-main, .btn-sub {
+        padding: 14px 35px !important;
+        border-radius: 50px !important; /* Esto es lo que pone los bordes redondos */
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
       /* Botón naranja principal */
-      .btn-main { text-decoration: none; display: inline-block;background: #F7941E; color: white; border: none; }
+      .btn-main { 
+        background: #F7941E !important; 
+        color: white !important; 
+        border: none !important; 
+        
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 15px rgba(247, 148, 30, 0.3);
+        }
+      }
       
       /* Botón con borde rosa para el CV */
-      .btn-sub { border: 2px solid #D48A9B; color: #D48A9B; background: transparent; }
-      
-      /* Efecto de elevación al pasar el ratón por los botones */
-      button:hover, .btn-sub:hover { transform: translateY(-3px); }
-    }
+      .btn-sub { 
+        border: 2px solid #D48A9B !important; 
+        color: #D48A9B !important; 
+        background: transparent !important; 
 
-    /* Iconos de Redes Sociales (LinkedIn, GitHub, Behance) */
-    .social-links {
-      display: flex;
-      gap: 25px;
-      margin-top: 40px;
-      a {
-        font-size: 2rem;
-        color: #444;
-        transition: 0.3s;
-        /* Al pasar el ratón, el icono sube y cambia a naranja */
-        &:hover { color: #F7941E; transform: translateY(-5px); }
+        &:hover {
+          background: rgba(212, 138, 155, 0.1);
+          transform: translateY(-3px);
+        }
       }
     }
   }
