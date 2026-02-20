@@ -1260,7 +1260,7 @@
   }
 }
 
-/* --- 2. ESTILOS PARA MÓVIL (Con mejoras de lectura y centrado) --- */
+/* --- 2. ESTILOS PARA MÓVIL (Ajuste de precisión final) --- */
 @media (max-width: 992px) {
   :host {
     display: block;
@@ -1272,40 +1272,33 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 40px 20px;
+    padding: 40px 25px; /* Aumentamos un pelín el margen lateral del texto */
 
-    // MEJORA DE LECTURA: Títulos más proporcionados
     h1 {
-      font-size: 2.2rem; 
+      font-size: 2.1rem; 
       line-height: 1.2;
-      margin-bottom: 10px;
-      .apellido {
-        display: block;
-        font-size: 1.8rem;
-      }
+      .apellido { display: block; font-size: 1.7rem; }
     }
 
-    // MEJORA DE LECTURA: Interlineado para que el párrafo respire
     p {
       font-size: 1rem;
-      line-height: 1.6; // Esto es clave para que no se vea el "bloque negro"
+      line-height: 1.6;
       margin-bottom: 25px;
     }
 
-    .texto-inicio {
-      order: 1;
-      margin-bottom: 30px;
+    // Ajuste para que los botones de "Ver Proyectos / CV" no toquen el borde
+    .nav-buttons-inline, .actions-inicio { 
+      display: flex;
+      flex-wrap: wrap; /* Permite que bajen si el móvil es muy estrecho */
+      justify-content: center;
+      gap: 12px;
+      padding: 0 10px;
     }
 
-    .perfil-container {
-      order: 2;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      .profile-img {
-        width: 250px; 
-        height: auto;
-      }
+    .perfil-container .profile-img {
+      width: 240px;
+      height: auto;
+      margin-top: 20px;
     }
   }
 
@@ -1325,22 +1318,28 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      padding: 0 15px;
+      /* El padding de 20px evita que la card toque los bordes físicos del teléfono */
+      padding: 0 20px; 
       box-sizing: border-box;
 
       .card {
         width: 100% !important;
-        max-width: 350px; // Un poco más estrecha para centrar mejor el contenido
-        margin: 0 auto 25px auto !important;
+        /* Reducimos el max-width para que la card tenga aire a los lados */
+        max-width: 330px; 
+        margin: 0 auto 30px auto !important;
         display: block;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 
-        // Ajuste interno de la card
         .card-content {
-          padding: 15px;
-          p {
-            line-height: 1.4;
-            font-size: 0.9rem;
-          }
+          padding: 20px; /* Más espacio interno para que el texto no pegue al borde de la card */
+          text-align: left;
+          h3 { font-size: 1.2rem; margin-bottom: 8px; }
+          p { line-height: 1.5; font-size: 0.95rem; }
+        }
+
+        .img-proyecto {
+          width: 100%;
+          border-radius: 15px 15px 0 0;
         }
       }
     }
