@@ -1223,85 +1223,108 @@
 /* ESTO ES LA PARRE FINAL DE SCSS NORMAL*/
 
 /*ESTO ES EL MÓVIL*/
-// Variables
-$mobile-breakpoint: 768px;
-
 :host {
   display: block;
   width: 100%;
-  max-width: 100vw; // Evita que el componente crezca más que la pantalla
-  overflow-x: hidden; // Prohibido el desplazamiento lateral (soluciona el zoom out)
+  overflow-x: hidden; // SOLUCIÓN AL ZOOM OUT
 }
 
 #inicio {
   width: 100%;
-  padding: 80px 20px;
-  box-sizing: border-box;
+  padding: 60px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  box-sizing: border-box;
 
-  .perfil-container {
-    margin-bottom: 20px;
-    
-    .profile-img {
-      width: 200px;  // Tamaño controlado para la foto
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #f04; // Un toque de color para que resalte
-      display: block; // Asegura que no esté oculta
+  h1 {
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    color: #ffffff; 
+    margin: 0;
+    line-height: 1.1;
+
+    span.apellido {
+      display: block; // De Tena en una línea nueva si es necesario
+      color: #F7941E; 
     }
   }
 
-  h1 {
-    font-size: clamp(2rem, 8vw, 4rem); // Tamaño elástico: ni muy grande ni muy pequeño
-    word-wrap: break-word; // Si el nombre es largo, que baje de línea
-    overflow-wrap: break-word;
-    width: 100%;
-    margin: 10px 0;
-    
-    .apellido {
-      color: #f04; // Para tu "De Tena"
-      display: inline-block; // Permite que se maneje mejor el bloque de texto
-    }
+  .intro-text {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 1.1rem;
+    color: #ccc;
   }
 }
 
 #proyectos {
   width: 100%;
+  padding: 40px 15px;
   box-sizing: border-box;
 
-  .grid-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  .categoria-proyectos {
+    margin-bottom: 60px;
     width: 100%;
 
-    .card {
+    .header-categoria {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      img { width: 45px; margin-right: 15px; }
+      h2 { font-size: 1.8rem; color: #fff; }
+    }
+
+    .grid-cards {
+      display: flex;
+      flex-direction: column; // Cards en vertical para móvil por defecto
+      gap: 25px;
       width: 100%;
-      max-width: 350px; // Evita que se deformen
-      margin: 0 auto;
+
+      .card {
+        width: 100% !important; // QUE OCUPE TODO EL ANCHO
+        max-width: 450px; // Pero que no se deforme en pantallas medianas
+        margin: 0 auto;
+        background: #1e1e1e;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+        .img-proyecto {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 16/9;
+          object-fit: cover;
+        }
+
+        .card-content {
+          padding: 20px;
+          h3 { color: #fff; margin-bottom: 10px; }
+          p { color: #aaa; font-size: 0.95rem; }
+        }
+      }
     }
   }
 }
 
-// --- AJUSTES ESPECÍFICOS MOBILE ---
-@media (max-width: $mobile-breakpoint) {
-  html, body {
-    overflow-x: hidden; // Bloqueo total de scroll lateral a nivel navegador
-    position: relative;
-    width: 100%;
-  }
-
-  #inicio {
-    padding: 40px 15px;
+// --- MEDIA QUERIES PARA PANTALLAS GRANDES ---
+@media (min-width: 992px) {
+  #proyectos .grid-cards {
+    flex-direction: row; // En PC vuelven a estar de lado
+    flex-wrap: wrap;
+    justify-content: center;
     
-    h1 {
-      font-size: 2.5rem; // Tamaño fijo más seguro para el "De Tena"
-      line-height: 1.2;
-    }
+    .card { width: calc(50% - 25px) !important; }
+  }
+}
+
+// --- MEDIA QUERIES PARA MÓVIL (AJUSTE FINO) ---
+@media (max-width: 600px) {
+  #inicio h1 { font-size: 2.8rem; }
+  
+  .header-categoria {
+    flex-direction: column;
+    text-align: center;
+    img { margin-right: 0; margin-bottom: 10px; }
   }
 }

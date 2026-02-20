@@ -1,6 +1,5 @@
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
+
 .navbar-container {
   width: 95%;
   margin: 15px auto;
@@ -8,6 +7,9 @@ html {
   border-radius: 15px;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
   padding: 10px 30px;
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
 
   .nav-content {
     display: flex;
@@ -17,15 +19,28 @@ html {
     margin: 0 auto;
   }
 
-  .vertical-logo {
-    height: 65px;
-    width: auto;
+  .vertical-logo { height: 65px; width: auto; }
+
+  // --- CONFIGURACIÓN HAMBURGUESA ---
+  .menu-checkbox { display: none; }
+
+  .hamburger-label {
+    display: none; // Solo se verá en móvil
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    span {
+      width: 30px; height: 3px;
+      background: #4C4348;
+      transition: all 0.3s ease;
+      border-radius: 3px;
+    }
   }
 
   .nav-links {
     display: flex;
     list-style: none;
-    gap: 40px; // Más espacio entre pestañas
+    gap: 40px;
     align-items: center;
     margin: 0;
 
@@ -42,28 +57,53 @@ html {
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
-
       .nav-buttons-inline {
-        display: flex;
-        gap: 8px;
-        margin-top: 5px;
-
+        display: flex; gap: 8px; margin-top: 5px;
         .btn-toggle {
-          border: none;
-          border-radius: 5px;
-          padding: 3px 10px;
-          color: white;
-          font-weight: 800;
-          font-size: 0.6rem;
-          cursor: pointer;
-          transition: transform 0.2s;
-          
+          border: none; border-radius: 5px; padding: 3px 10px;
+          color: white; font-weight: 800; font-size: 0.6rem;
+          cursor: pointer; transition: transform 0.2s;
           &:hover { transform: translateY(-2px); }
           &.code { background: #F7941E; }
           &.art { background: #D48A9B; }
         }
       }
+    }
+  }
+
+  // --- MÓVIL (Media Query) ---
+  @media (max-width: 992px) {
+    padding: 10px 20px;
+
+    .hamburger-label { display: flex; }
+
+    .nav-links {
+      display: none; // Escondemos los links en móvil por defecto
+      position: absolute;
+      top: 100%; left: 0; width: 100%;
+      background: #ffffff;
+      flex-direction: column;
+      padding: 30px 0;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      gap: 25px;
+
+      // Hacemos que los botones de proyectos se vean bien en el menú vertical
+      .proyectos-item .nav-buttons-inline {
+        margin-top: 15px;
+      }
+    }
+
+    // El truco para que aparezca al pulsar la hamburguesa
+    .menu-checkbox:checked ~ .nav-links {
+      display: flex;
+    }
+
+    // Animación de hamburguesa a "X"
+    .menu-checkbox:checked ~ .hamburger-label {
+      span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
     }
   }
 }
