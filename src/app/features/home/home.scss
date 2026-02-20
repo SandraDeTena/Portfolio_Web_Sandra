@@ -1260,7 +1260,7 @@
   }
 }
 
-/* --- 2. ESTILOS PARA MÓVIL (Ajuste de precisión final) --- */
+/* --- 2. ESTILOS PARA MÓVIL (Versión Final con Centrado 100vw) --- */
 @media (max-width: 992px) {
   :host {
     display: block;
@@ -1272,7 +1272,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 40px 25px; /* Aumentamos un pelín el margen lateral del texto */
+    padding: 40px 25px;
 
     h1 {
       font-size: 2.1rem; 
@@ -1286,10 +1286,9 @@
       margin-bottom: 25px;
     }
 
-    // Ajuste para que los botones de "Ver Proyectos / CV" no toquen el borde
     .nav-buttons-inline, .actions-inicio { 
       display: flex;
-      flex-wrap: wrap; /* Permite que bajen si el móvil es muy estrecho */
+      flex-wrap: wrap; 
       justify-content: center;
       gap: 12px;
       padding: 0 10px;
@@ -1302,36 +1301,44 @@
     }
   }
 
+  /* --- SUSTITUCIÓN DE #PROYECTOS PARA CENTRADO PERFECTO --- */
   #proyectos {
     width: 100%;
     padding: 40px 0; 
+    margin: 0; 
     
     .categoria-proyectos {
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
 
     .grid-cards {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      /* El padding de 20px evita que la card toque los bordes físicos del teléfono */
-      padding: 0 20px; 
-      box-sizing: border-box;
+      display: flex !important; 
+      flex-direction: column !important;
+      align-items: center !important; 
+      justify-content: center !important;
+      
+      width: 100vw; 
+      padding: 0 !important;
+      margin: 0 !important;
+      list-style: none;
 
       .card {
-        width: 100% !important;
-        /* Reducimos el max-width para que la card tenga aire a los lados */
+        width: 90% !important; 
         max-width: 330px; 
-        margin: 0 auto 30px auto !important;
+        margin: 0 auto 30px auto !important; 
         display: block;
+        float: none;
+        position: relative;
+        left: 0;
+        box-sizing: border-box;
         box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 
         .card-content {
-          padding: 20px; /* Más espacio interno para que el texto no pegue al borde de la card */
+          padding: 20px; 
           text-align: left;
           h3 { font-size: 1.2rem; margin-bottom: 8px; }
           p { line-height: 1.5; font-size: 0.95rem; }
@@ -1340,6 +1347,7 @@
         .img-proyecto {
           width: 100%;
           border-radius: 15px 15px 0 0;
+          display: block; // Evita espacios extra debajo de la imagen
         }
       }
     }
