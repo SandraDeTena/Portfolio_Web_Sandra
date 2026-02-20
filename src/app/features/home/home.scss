@@ -1224,7 +1224,11 @@
 $mobile-breakpoint: 768px;
 $card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 $transition-speed: 0.3s;
-
+@media (max-width: 768px) {
+  #proyectos {
+    background-color: red !important; // ¡Solo para probar!
+  }
+}
 #proyectos {
   padding: 40px 20px;
 
