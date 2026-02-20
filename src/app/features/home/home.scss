@@ -1223,108 +1223,102 @@
 /* ESTO ES LA PARRE FINAL DE SCSS NORMAL*/
 
 /*ESTO ES EL MÓVIL*/
-:host {
-  display: block;
-  width: 100%;
-  overflow-x: hidden; // SOLUCIÓN AL ZOOM OUT
-}
+/* --- 1. ESTILOS PARA ESCRITORIO (Lo que tenías antes) --- */
+/* Solo se aplica si la pantalla es mayor a 992px */
+@media (min-width: 993px) {
+  #inicio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 10%;
+    min-height: 80vh;
 
-#inicio {
-  width: 100%;
-  padding: 60px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
+    .texto-inicio {
+      flex: 1;
+      text-align: left;
+    }
 
-  h1 {
-    font-size: clamp(2.5rem, 10vw, 5rem);
-    color: #ffffff; 
-    margin: 0;
-    line-height: 1.1;
-
-    span.apellido {
-      display: block; // De Tena en una línea nueva si es necesario
-      color: #F7941E; 
+    .perfil-container {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      .profile-img {
+        width: 450px;
+        height: auto;
+        border-radius: 50%;
+      }
     }
   }
 
-  .intro-text {
-    max-width: 800px;
-    margin: 20px auto;
-    font-size: 1.1rem;
-    color: #ccc;
+  #proyectos {
+    padding: 60px 10%;
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas en PC */
+      gap: 40px;
+    }
   }
 }
 
-#proyectos {
-  width: 100%;
-  padding: 40px 15px;
-  box-sizing: border-box;
-
-  .categoria-proyectos {
-    margin-bottom: 60px;
+/* --- 2. ESTILOS PARA MÓVIL (Corrección de centrado) --- */
+/* Solo se aplica si la pantalla es menor a 992px */
+@media (max-width: 992px) {
+  :host {
+    display: block;
     width: 100%;
+    overflow-x: hidden; /* Adiós al movimiento lateral */
+  }
 
-    .header-categoria {
-      display: flex;
-      align-items: center;
+  #inicio {
+    display: flex;
+    flex-direction: column; /* Foto arriba o abajo del texto */
+    text-align: center;
+    padding: 40px 20px;
+
+    .texto-inicio {
+      order: 1;
       margin-bottom: 30px;
-      img { width: 45px; margin-right: 15px; }
-      h2 { font-size: 1.8rem; color: #fff; }
+    }
+
+    .perfil-container {
+      order: 2;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      
+      .profile-img {
+        width: 280px; /* Tamaño ajustado para móvil */
+        height: auto;
+      }
+    }
+  }
+
+  #proyectos {
+    width: 100%;
+    padding: 40px 0; /* Quitamos padding lateral para que no empuje a la derecha */
+    
+    .categoria-proyectos {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra el título y la grid */
     }
 
     .grid-cards {
       display: flex;
-      flex-direction: column; // Cards en vertical para móvil por defecto
-      gap: 25px;
+      flex-direction: column;
+      align-items: center; /* ESTO CENTRA LAS TARJETAS */
       width: 100%;
+      padding: 0 15px; /* Un poco de margen interno para que no peguen al borde */
+      box-sizing: border-box;
 
       .card {
-        width: 100% !important; // QUE OCUPE TODO EL ANCHO
-        max-width: 450px; // Pero que no se deforme en pantallas medianas
-        margin: 0 auto;
-        background: #1e1e1e;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-
-        .img-proyecto {
-          width: 100%;
-          height: auto;
-          aspect-ratio: 16/9;
-          object-fit: cover;
-        }
-
-        .card-content {
-          padding: 20px;
-          h3 { color: #fff; margin-bottom: 10px; }
-          p { color: #aaa; font-size: 0.95rem; }
-        }
+        width: 100% !important;
+        max-width: 380px; /* Para que no se vean gigantes, pero sí centradas */
+        margin: 0 auto 25px auto !important; /* El 'auto' en los lados es clave para centrar */
+        display: block;
       }
     }
-  }
-}
-
-// --- MEDIA QUERIES PARA PANTALLAS GRANDES ---
-@media (min-width: 992px) {
-  #proyectos .grid-cards {
-    flex-direction: row; // En PC vuelven a estar de lado
-    flex-wrap: wrap;
-    justify-content: center;
-    
-    .card { width: calc(50% - 25px) !important; }
-  }
-}
-
-// --- MEDIA QUERIES PARA MÓVIL (AJUSTE FINO) ---
-@media (max-width: 600px) {
-  #inicio h1 { font-size: 2.8rem; }
-  
-  .header-categoria {
-    flex-direction: column;
-    text-align: center;
-    img { margin-right: 0; margin-bottom: 10px; }
   }
 }
