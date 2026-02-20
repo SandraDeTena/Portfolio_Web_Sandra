@@ -1220,3 +1220,114 @@
   }
 }
 
+// Variables para mantener coherencia (puedes cambiarlas a tu gusto)
+$mobile-breakpoint: 768px;
+$card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+$transition-speed: 0.3s;
+
+#proyectos {
+  padding: 40px 20px;
+
+  .categoria-proyectos {
+    margin-bottom: 50px;
+
+    .header-categoria {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+
+      .img-tematica {
+        width: 50px;
+        margin-right: 15px;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin: 0;
+      }
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+
+      .card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: $card-shadow;
+        transition: transform $transition-speed ease;
+
+        &:hover {
+          transform: translateY(-8px);
+        }
+
+        .img-proyecto {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+
+        .card-content {
+          padding: 20px;
+
+          h3 { margin-top: 0; }
+          
+          .tech-stack {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+
+            img {
+              width: 25px;
+              height: 25px;
+              filter: grayscale(80%);
+              transition: filter $transition-speed;
+
+              &:hover {
+                filter: grayscale(0%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // --- RESPONSIVE (MOBILE) ---
+  @media (max-width: $mobile-breakpoint) {
+    padding: 20px 10px;
+
+    .categoria-proyectos {
+      .header-categoria {
+        flex-direction: column; // Icono arriba del título
+        text-align: center;
+
+        .img-tematica {
+          margin-right: 0;
+          margin-bottom: 10px;
+          width: 60px; // Un poco más grande para que sea el foco
+        }
+      }
+
+      .grid-cards {
+        grid-template-columns: 1fr; // Una sola columna en móvil
+        
+        .card {
+          .img-proyecto {
+            height: 180px; // Altura optimizada para pantallas pequeñas
+          }
+
+          .card-content {
+            .tech-stack {
+              justify-content: center; // Centramos los logos de las tecnologías
+              flex-wrap: wrap;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
