@@ -1220,19 +1220,28 @@
   }
 }
 
-// Variables para mantener coherencia (puedes cambiarlas a tu gusto)
+/* ESTO ES LA PARRE FINAL DE SCSS NORMAL*/
+
+/*ESTO ES EL MÓVIL*/
+// Variables
 $mobile-breakpoint: 768px;
-$card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+$card-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 $transition-speed: 0.3s;
-@media (max-width: 768px) {
-  #proyectos {
-    background-color: red !important; // ¡Solo para probar!
-  }
+
+// --- CONFIGURACIÓN GLOBAL DE RESPONSIVE ---
+:host {
+  display: block;
+  width: 100%;
+  overflow-x: hidden; // Evita el desplazamiento lateral molesto
 }
+
 #proyectos {
+  width: 100%;
   padding: 40px 20px;
+  box-sizing: border-box;
 
   .categoria-proyectos {
+    width: 100%;
     margin-bottom: 50px;
 
     .header-categoria {
@@ -1248,20 +1257,24 @@ $transition-speed: 0.3s;
       h2 {
         font-size: 2rem;
         margin: 0;
+        color: #fff; // Ajusta según tu paleta
       }
     }
 
     .grid-cards {
       display: grid;
+      // En escritorio usa columnas, en móvil cambiaremos a 1 sola
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 25px;
+      width: 100%;
 
       .card {
-        background: #fff;
+        background: #1a1a1a; // Color oscuro para que pegue con tu diseño
         border-radius: 15px;
         overflow: hidden;
         box-shadow: $card-shadow;
         transition: transform $transition-speed ease;
+        width: 100%;
 
         &:hover {
           transform: translateY(-8px);
@@ -1275,8 +1288,9 @@ $transition-speed: 0.3s;
 
         .card-content {
           padding: 20px;
-
-          h3 { margin-top: 0; }
+          
+          h3 { color: #fff; margin-top: 0; }
+          p { color: #ccc; font-size: 0.9rem; }
           
           .tech-stack {
             display: flex;
@@ -1299,33 +1313,42 @@ $transition-speed: 0.3s;
     }
   }
 
-  // --- RESPONSIVE (MOBILE) ---
+  // --- REGLAS ESPECÍFICAS PARA MÓVIL (Lo que arregla tu vista) ---
   @media (max-width: $mobile-breakpoint) {
     padding: 20px 10px;
 
     .categoria-proyectos {
       .header-categoria {
-        flex-direction: column; // Icono arriba del título
+        flex-direction: column; 
         text-align: center;
 
         .img-tematica {
           margin-right: 0;
           margin-bottom: 10px;
-          width: 60px; // Un poco más grande para que sea el foco
+          width: 60px;
         }
       }
 
       .grid-cards {
-        grid-template-columns: 1fr; // Una sola columna en móvil
+        display: flex; // Cambiamos a Flex para mejor control en móvil
+        flex-direction: column;
+        align-items: center;
+        grid-template-columns: 1fr; 
         
         .card {
+          width: 100% !important; // Fuerza el ancho total de la pantalla
+          max-width: 100%; // Asegura que no se limite
+          margin-bottom: 25px;
+
           .img-proyecto {
-            height: 180px; // Altura optimizada para pantallas pequeñas
+            height: 220px; // Un poco más grande para que se vea bien en el móvil
           }
 
           .card-content {
+            text-align: center;
+
             .tech-stack {
-              justify-content: center; // Centramos los logos de las tecnologías
+              justify-content: center; // Centramos logos en móvil
               flex-wrap: wrap;
             }
           }
@@ -1335,3 +1358,30 @@ $transition-speed: 0.3s;
   }
 }
 
+// Fuerza a que todo el portfolio ocupe el ancho del móvil
+:host {
+  display: block;
+  width: 100%;
+  overflow-x: hidden; // Evita que la web se mueva hacia los lados
+}
+
+// Asegúrate de que el contenedor de tus tarjetas no tenga un ancho fijo
+.categoria-proyectos {
+  width: 100% !important;
+  max-width: 100vw;
+  padding: 0 15px; // Un poco de aire a los lados
+  box-sizing: border-box;
+
+  .grid-cards {
+    display: flex;
+    flex-direction: column; // En móvil, una debajo de otra
+    align-items: center;
+    width: 100%;
+  }
+
+  .card {
+    width: 100%; // Que la card ocupe todo el ancho disponible
+    max-width: 400px; // Pero que no se haga gigante en tablets
+    margin: 0 auto 20px auto;
+  }
+}
