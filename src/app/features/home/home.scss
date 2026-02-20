@@ -1223,8 +1223,7 @@
 /* ESTO ES LA PARRE FINAL DE SCSS NORMAL*/
 
 /*ESTO ES EL MÓVIL*/
-/* --- 1. ESTILOS PARA ESCRITORIO (Lo que tenías antes) --- */
-/* Solo se aplica si la pantalla es mayor a 992px */
+/* --- 1. ESTILOS PARA ESCRITORIO (Tu versión original intacta) --- */
 @media (min-width: 993px) {
   #inicio {
     display: flex;
@@ -1255,26 +1254,43 @@
     padding: 60px 10%;
     .grid-cards {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Dos columnas en PC */
+      grid-template-columns: repeat(2, 1fr);
       gap: 40px;
     }
   }
 }
 
-/* --- 2. ESTILOS PARA MÓVIL (Corrección de centrado) --- */
-/* Solo se aplica si la pantalla es menor a 992px */
+/* --- 2. ESTILOS PARA MÓVIL (Con mejoras de lectura y centrado) --- */
 @media (max-width: 992px) {
   :host {
     display: block;
     width: 100%;
-    overflow-x: hidden; /* Adiós al movimiento lateral */
+    overflow-x: hidden;
   }
 
   #inicio {
     display: flex;
-    flex-direction: column; /* Foto arriba o abajo del texto */
+    flex-direction: column;
     text-align: center;
     padding: 40px 20px;
+
+    // MEJORA DE LECTURA: Títulos más proporcionados
+    h1 {
+      font-size: 2.2rem; 
+      line-height: 1.2;
+      margin-bottom: 10px;
+      .apellido {
+        display: block;
+        font-size: 1.8rem;
+      }
+    }
+
+    // MEJORA DE LECTURA: Interlineado para que el párrafo respire
+    p {
+      font-size: 1rem;
+      line-height: 1.6; // Esto es clave para que no se vea el "bloque negro"
+      margin-bottom: 25px;
+    }
 
     .texto-inicio {
       order: 1;
@@ -1286,9 +1302,8 @@
       display: flex;
       justify-content: center;
       width: 100%;
-      
       .profile-img {
-        width: 280px; /* Tamaño ajustado para móvil */
+        width: 250px; 
         height: auto;
       }
     }
@@ -1296,28 +1311,37 @@
 
   #proyectos {
     width: 100%;
-    padding: 40px 0; /* Quitamos padding lateral para que no empuje a la derecha */
+    padding: 40px 0; 
     
     .categoria-proyectos {
       width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Centra el título y la grid */
+      align-items: center;
     }
 
     .grid-cards {
       display: flex;
       flex-direction: column;
-      align-items: center; /* ESTO CENTRA LAS TARJETAS */
+      align-items: center;
       width: 100%;
-      padding: 0 15px; /* Un poco de margen interno para que no peguen al borde */
+      padding: 0 15px;
       box-sizing: border-box;
 
       .card {
         width: 100% !important;
-        max-width: 380px; /* Para que no se vean gigantes, pero sí centradas */
-        margin: 0 auto 25px auto !important; /* El 'auto' en los lados es clave para centrar */
+        max-width: 350px; // Un poco más estrecha para centrar mejor el contenido
+        margin: 0 auto 25px auto !important;
         display: block;
+
+        // Ajuste interno de la card
+        .card-content {
+          padding: 15px;
+          p {
+            line-height: 1.4;
+            font-size: 0.9rem;
+          }
+        }
       }
     }
   }
